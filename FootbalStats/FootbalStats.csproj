@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{97EF78EF-C692-401F-8269-D5D3D6022572}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FootbalStats</RootNamespace>
+    <AssemblyName>FootbalStats</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fizzler, Version=0.1.15619.0, Culture=neutral, PublicKeyToken=4ebff4844e382110, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fizzler.1.0.0\lib\net35\Fizzler.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fizzler.Systems.HtmlAgilityPack, Version=0.1.15619.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fizzler.Systems.HtmlAgilityPack.1.0.0\lib\net35\Fizzler.Systems.HtmlAgilityPack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FSharp.Core, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\FSharp.Core.4.0.0.1\lib\net40\FSharp.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.4.9.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.9\lib\Net45\HtmlAgilityPack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="ScrapySharp.Core, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ScrapySharp.2.6.1\lib\net45\ScrapySharp.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ScrapySharpAsync, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ScrapySharp.2.6.1\lib\net45\ScrapySharpAsync.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Advisor.cs" />
+    <Compile Include="Algorithms\LevenshteinDistance.cs" />
+    <Compile Include="Analyzer.cs" />
+    <Compile Include="Migrations\201705011936199_SoccerStatGoalByMinute.cs" />
+    <Compile Include="Migrations\201705011936199_SoccerStatGoalByMinute.Designer.cs">
+      <DependentUpon>201705011936199_SoccerStatGoalByMinute.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Scrapers\ForebetUrl.cs" />
+    <Compile Include="ImportExport\CSVImporter.cs" />
+    <Compile Include="ImportExport\ImportService.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\IEntity.cs" />
+    <Compile Include="Models\SoccerStatGoalByMinute.cs" />
+    <Compile Include="Models\Team.cs" />
+    <Compile Include="Reporter.cs" />
+    <Compile Include="Repos\IRepository.cs" />
+    <Compile Include="Models\League.cs" />
+    <Compile Include="Repos\LeagueRepository.cs" />
+    <Compile Include="Repos\MatchRepository.cs" />
+    <Compile Include="Models\MatchResult.cs" />
+    <Compile Include="Repos\MainDbContext.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Models\Season.cs" />
+    <Compile Include="Repos\SeasonRepository.cs" />
+    <Compile Include="Repos\SoccerStatGoalByMinuteRepository.cs" />
+    <Compile Include="Scrapers\ForebetScraper.cs" />
+    <Compile Include="Scrapers\SoccerStatsScraper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201705011936199_SoccerStatGoalByMinute.resx">
+      <DependentUpon>201705011936199_SoccerStatGoalByMinute.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
